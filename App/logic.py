@@ -132,24 +132,26 @@ def load_books_tags(catalog, filename):
     :returns: Tamaño del conjunto de tags de los libros
     :rtype: int
     """
-    # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    pass
+    book_tags_file= os.path.join(data_dir, filename)
+    input_file=csv.DictReader(open(book_tags_file, encoding="utf-8"))
+    catalog["book_tags"]= set.new_set()
+    for book_tag in input_file:
+        set.add_element(catalog["book_tags"], book_tag)
+    return book_tag_size(catalog)
 
 
 def first_book(catalog):
     """
     Devuelve el primer libro del catalogo
     """
-    # TODO: Mods Est-3 en el Lab 2
-    pass
+    return set.get_first_element(catalog["books"])
 
 
 def last_book(catalog):
     """
     Devuelve el ultimo libro del catalogo
     """
-    # TODO: Mods Est-3 en el Lab 2
-    pass
+    return set.get_last_element(catalog["books"])
 
 # Funciones para la manipulacion de los datos
 
@@ -166,16 +168,17 @@ def add_book_tags_file(catalog, booktagsfile):
     :returns: catalog
     :rtype: dict
     """
-    # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    pass
+    bt = set.load_set(set.new_set(), booktagsfile)
+    catalog["book_tags"] = bt
+    return catalog
 
 
 def create_book_tag_list(catalog):
     """
     Esta funcion crea una lista vacia para booktags.
     """
-    # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    pass
+    catalog["book_tags"] = set.new_set()
+    return catalog
 
 
 def add_book_tag(catalog, booktag):
@@ -190,22 +193,19 @@ def add_book_tag(catalog, booktag):
     :returns: catalog
     :rtype: dict
     """
-    # TODO: Mods de Est-1, Est-2 y Est-3 en el Lab 2
-    pass
+    set.add_element(catalog["book_tags"], booktag)
+    return catalog
 
 
 # Funciones de consulta
 
 def book_size(catalog):
-    # TODO: Mods de Est-3 en el Lab 2
-    pass
+    return set.size(catalog["books"])
 
 
 def tag_size(catalog):
-    # TODO: Mods de Est-3 en el Lab 2
-    pass
+    return set.size(catalog["tags"])
 
 
 def book_tag_size(catalog):
-    # TODO: Mods de Est-3 en el Lab 2
-    pass
+    return set.size(catalog["book_tags"])

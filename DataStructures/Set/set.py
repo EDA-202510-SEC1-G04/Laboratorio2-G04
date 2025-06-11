@@ -101,3 +101,25 @@ def is_empty(my_set):
     :rtype: bool
     """
     return my_set['size'] == 0
+
+def get_first_element(my_set):
+    '''Obtiene el primer elemento
+    
+    :param my_set: Set de donde se obtendrá el primer elemento
+    :type my_set: set
+    
+    :returns: El primer elemento del set.
+    :rtype: any
+    '''
+    return my_set['elements'][0]
+
+def get_last_element(my_set):
+    '''Obtiene el ultimo elemento
+    
+    :param my_set: Set de donde se obtendrá el ultimo elemento
+    :type my_set: set
+    
+    :returns: El ultimo elemento del set.
+    :rtype: any
+    '''
+    return my_set['elements'][-1]
